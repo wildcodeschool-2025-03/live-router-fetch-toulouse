@@ -1,14 +1,9 @@
-import { useContext } from "react";
-import DataContext from "../contexts/DataContext";
+import { useData } from "../contexts/DataContext";
 import type { FuturamaData } from "../services/Types";
 import RealContainer from "./RealContainer";
 
 function Container5() {
-  const context = useContext(DataContext);
-
-  if (context == null) return null;
-
-  const { data } = context;
+  const { data } = useData();
 
   return (
     <>
