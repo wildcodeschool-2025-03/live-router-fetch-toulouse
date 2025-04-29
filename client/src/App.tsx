@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { FuturamaData } from "./services/Types";
 import "./App.css";
+import Container1 from "./components/Container1";
 
 function App() {
   const [data, setData] = useState<FuturamaData[] | undefined>();
@@ -21,24 +22,7 @@ function App() {
     }
   }, []);
 
-  return (
-    <>
-      {data?.map((elem) => {
-        return (
-          <div key={elem.id}>
-            <h2>
-              {elem.name.first} {elem.name.middle} {elem.name.last}
-            </h2>
-            <p>{elem.age} ans</p>
-            <img
-              src={elem.images.main}
-              alt={`${elem.name.first} ${elem.name.last}`}
-            />
-          </div>
-        );
-      })}
-    </>
-  );
+  return data ? <Container1 data={data} /> : <div>Loading...</div>;
 }
 
 export default App;
