@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DataContext from "./contexts/DataContext";
 import type { FuturamaData } from "./services/Types";
 import "./App.css";
 import Container1 from "./components/Container1";
@@ -22,7 +23,13 @@ function App() {
     }
   }, []);
 
-  return data ? <Container1 data={data} /> : <div>Loading...</div>;
+  return data ? (
+    <DataContext value={{ data }}>
+      <Container1 />
+    </DataContext>
+  ) : (
+    <div>Loading...</div>
+  );
 }
 
 export default App;

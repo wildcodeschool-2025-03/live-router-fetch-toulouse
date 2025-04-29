@@ -1,8 +1,7 @@
-import type { FuturamaDataProps } from "../services/Types";
 import Container3 from "./Container3";
 
-function Container2({ data }: FuturamaDataProps) {
-  return <Container3 data={data} />;
+function Container2() {
+  return <Container3 />;
 }
 
 export default Container2;
